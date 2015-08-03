@@ -1,4 +1,13 @@
 <h1>
   <%= gravatar_for @user %>
   <%= @user.name %>
+  
+  <%= @user.email %>
+  
+  <%= @user.comment %>
+  <% if @user.comment.presence? %>
+  	<%= @user.comment %>
+  <% end %>
+  
+  <%= link_to "Edit", edit_user_path %>
 </h1>
