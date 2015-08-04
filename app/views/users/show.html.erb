@@ -8,6 +8,12 @@
 	<h3>
   	<%= @user.email %>
 	</h3>
+	
+	<p>
+		<% if @user.comment.present? %>
+  		<%= @user.comment %>
+  	<% end %>
+	</p>
 
 	<p>
 		<%= link_to "Edit", edit_user_path, class: "btn btn-large btn-primary" %>
