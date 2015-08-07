@@ -10,13 +10,6 @@
   			<%= @user.comment %>
   			<% end %>
 			</p>
-			<a>
-  			<%= @user.following_users.count %><%= link_to "followings", followings_path %>
-  		</a>
-  		
-  		<p>
-  			<%= @user.follower_users.count %><%= link_to "followers", followers_path %>
-			</p>
 
 			<p>
 				<%= link_to "Edit", edit_user_path, class: "btn btn-large btn-primary" %>
@@ -24,11 +17,10 @@
     </section>
   </aside>
   <div class="col-md-8">
-  	<%= render 'follow_form' if logged_in? %>
-    <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @microposts %>
+    <% if @user.follower_users.any? %>
+      <h3><%= @user.follower_users.count %> followers</h3>
+      <ol class="followers">
+        <%= @user.follower_users.name %>
       </ol>
     <% end %>
   </div>

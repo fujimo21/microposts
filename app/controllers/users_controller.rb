@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :followings, :followers]
   def show 
-   @user = User.find(params[:id])
    @microposts = @user.microposts
   end
   
@@ -25,11 +24,17 @@ class UsersController < ApplicationController
   
   def update
     if @user.update(user_params)
-      flash[:update] = "Updated!"
+      flash[:success] = "Updated!"
       redirect_to @user
     else
       render 'edit'
     end
+  end
+  
+  def followings
+  end
+  
+  def followers
   end
 
   private
