@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit, :update, :followings, :followers]
+  before_action :set_user, only: [:show, :index, :edit, :update, :followings, :followers]
   def show 
-   @microposts = @user.microposts
+    @microposts = @user.microposts
+  end
+  
+  def index
+    @microposts = @user.microposts.page(params[:page]).per(10)
   end
   
   def new
