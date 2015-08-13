@@ -11,8 +11,16 @@
     <p>Followed Users</p>
     <% if @user.follower_users.any? %>
       <h3><%= @user.follower_users.count %> followers</h3>
-      <ol class="followers">
-        <%= @follower_users.name %>
+      <% @follower_users.each do |follower_user| %>
+      <div id="following-follower">
+        <ul>
+          <%= link_to gravatar_for(follower_user, size: 50), follower_user %>
+          <li><%= link_to follower_user.name, follower_user %></li>
+          <li>"改修予定"</li>
+          <li>"改修予定"</li>
+        </ul>
+      </div>
+      <% end %>
       </ol>
     <% end %>
   </div>
