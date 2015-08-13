@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :microposts
   resources :relationships, only: [:create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
+  resources :follower
+  resources :followed
 end
