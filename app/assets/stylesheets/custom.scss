@@ -190,6 +190,7 @@ span.picture {
   }
 }
 
+<<<<<<< HEAD
 
 /* フォロワー・フォロー中画面 */
 .following-follower {
@@ -197,4 +198,9 @@ span.picture {
   height:80px;
   padding-bottom:10px;
   padding-left:0;
+=======
+#following-follower li {
+  list-style: none;
+  display: block;
+>>>>>>> 15f57e84fb73067130c68f23fc9698347f676402
 }
