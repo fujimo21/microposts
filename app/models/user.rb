@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
                                     dependent:   :destroy
   has_many :follower_users, through: :follower_relationships, source: :follower
   
+  mount_uploader :image, ImageUploader
+  
   def follow(other_user)
     following_relationships.create(followed_id: other_user.id)
   end
