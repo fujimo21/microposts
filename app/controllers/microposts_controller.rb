@@ -1,5 +1,6 @@
 class MicropostsController < ApplicationController
 	before_action :logged_in_user, only: [:create]
+	before_action :set_feeditems
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
@@ -22,5 +23,10 @@ class MicropostsController < ApplicationController
   private
   def micropost_params
     params.require(:micropost).permit(:content)
+  end
+  
+  def set_feeditems
+    @feed_items = current_user.feed_items.includes(:user).order(created_at: :desc)
+    @feed_items = current_user.feed_items.page(params[:page]).per(5)
   end
 end
